@@ -38,4 +38,4 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'carrierwave'
-# gem "rmagick", :require => 'RMagick'
+gem "rmagick", :require => 'RMagick'
