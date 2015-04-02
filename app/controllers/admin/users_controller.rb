@@ -1,9 +1,11 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::Base
   
-  before_filter :restrict_admin_access
-
   def new
     @user = User.new
+  end
+
+  def index
+    @users = User.all
   end
 
   def create
@@ -19,15 +21,6 @@ class Admin::UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
+    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :is_admin)
   end
-
-  def restrict_admin_access
-    if !current_user
-      redirect_to new_session_path
-    elsif !current_user.Admin
-      redirect_to movies_path
-    end
-  end
-
 end

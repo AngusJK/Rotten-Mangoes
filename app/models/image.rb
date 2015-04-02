@@ -1,6 +1,6 @@
-class Image < ActiveRecord::Base
+# class Image < ActiveRecord::Base
 
-  belongs_to :movie
-  mount_uploader :image, ImageUploader
+#   belongs_to :movie
+#   mount_uploader :image, ImageUploader
 
-end
+# end 
