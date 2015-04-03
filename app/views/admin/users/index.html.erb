@@ -1,6 +1,12 @@
 <h3><%= link_to "All Movies", movies_path %></h3>
+
 <h1> Users </h1>
-<% @users.each do |user| %>
+
+<%= paginate @users %> 
+
+<%  @users.each do |user| %>
 <h3><%= user.full_name %></h3>
-<h4><%= user.email %></h4>
+<h4><%= link_to "Details", show_admin_users %>
+<br>
+<br>
 <% end %>

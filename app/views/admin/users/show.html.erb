@@ -1,0 +1,8 @@
+<%= link_to "Back to all users", users_path %>
+
+<h2><%= @user.full_name %> (<%= link_to "edit", edit_user_path(@user) %>, <%= link_to "delete", user_path(@user), method: :delete, confirm: "You sure?" %>)</h2>
+<h3><%= @user.email %></h3>
+<h3><%= @user.firtname %></h3>
+<h3><%= @user.lastname %></h3>
+<h3><%= @user.is_admin %></h3>
+<h3><%= @user.created_at %></h3>
