@@ -6,7 +6,7 @@
 
 <%  @users.each do |user| %>
 <h3><%= user.full_name %></h3>
-<h4><%= link_to "Details", show_admin_users %>
+<h4><%= link_to "Details", admin_user_path(user.id) %>
 <br>
 <br>
 <% end %>
