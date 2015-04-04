@@ -31,5 +31,6 @@
     <%= f.label "password_confirmation" %><br>
     <%= f.password_field "password_confirmation" %>
   </div>
+  <div><%= check_box_tag(@user.is_admin) %><%= label_tag(@user.is_admin, "Admin") %></div>
   <div><%= f.submit "Submit" %></div>
 <% end %>
