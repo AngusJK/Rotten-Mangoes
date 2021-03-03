@@ -40,10 +40,10 @@
   </div>
 </nav> -->
 
-<h1>Rotten Mangoes</h1>
+<h1 class="title">Rotten Mangoes</h1>
 
 
-<%= link_to "Submit a movie!", new_movie_path %>
+<span class="submit-new-movie"><%= link_to "Submit a movie!", new_movie_path %></span>
 <hr>
 <%= form_tag(search_movies_path, method: "get") do %>
   <%= label_tag(:q, "Search by:") %>
