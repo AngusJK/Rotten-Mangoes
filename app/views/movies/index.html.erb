@@ -40,32 +40,50 @@
   </div>
 </nav> -->
 
-<h1 class="title">Rotten Mangoes</h1>
+<!--<h1 class="title">Rotten Mangoes</h1>-->
 
-
-<span class="submit-new-movie"><%= link_to "Submit a movie!", new_movie_path %></span>
-<hr>
-<%= form_tag(search_movies_path, method: "get") do %>
-  <%= label_tag(:q, "Search by:") %>
-  <%= text_field_tag(:q, nil, :placeholder => "Movie Title/Director") %>
-  <%= select_tag :runtime_in_minutes, options_for_select(["","Under 90 minutes","Between 90 and 120 minutes","Over 120 minutes"], params[:runtime_in_minutes]) %>
-
-  <%= submit_tag("Search") %>
-<% end %> 
-<hr>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><h1>Rotten Mangoes</h1></a>
+      <span class="submit-new-movie"><%= link_to "Submit a movie!", new_movie_path %></span>
+      <hr>
+      <%= form_tag(search_movies_path, method: "get") do %>
+        <%= label_tag(:q, "Search by:") %>
+        <%= text_field_tag(:q, nil, :placeholder => "Movie Title/Director") %>
+        <%= select_tag :runtime_in_minutes, options_for_select(["","Under 90 minutes","Between 90 and 120 minutes","Over 120 minutes"], params[:runtime_in_minutes]) %>
+      
+        <%= submit_tag("Search") %>
+      <% end %> 
+      <hr>
+      </div>
+  </div>  
+</nav>
 
 <% @movies.each_with_index do |movie, i| %>
-  <div class="col-md-4">
+  
+
+  <div class="col-md-3">
     <div class="poster-container"> 
       <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
     </div>
+
     <%= image_tag movie.image_url(:thumb).to_s %>
+
     <h2><%= link_to movie.title, movie_path(movie) %></h2>
     <h3>Released: <%= movie.release_date.strftime("%B %-d, %Y") %></h3>
    
     <h4>Director: <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
     <p><%= movie.description %></p>
   </div>
+
+
   <%  if i % 3 == 2 %>
     <div style="clear: both;"></div>
   <% end %> 
