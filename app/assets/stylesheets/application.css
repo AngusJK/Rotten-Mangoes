@@ -14,3 +14,7 @@
  *= require_self
  */
 
+#logo {
+  color: rgb(224, 166, 4);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
