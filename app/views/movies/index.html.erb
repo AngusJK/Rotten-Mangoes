@@ -77,27 +77,42 @@
   </div>  
 </nav>
 
-<% @movies.each_with_index do |movie, i| %>
+
+<div class="container-fluid">
+  <div class="row">
+  
+    <% @movies.each_with_index do |movie, i| %>
+      
+      <div class="col-md-3">
+    
+        <div class="poster-container"> 
+          <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
+        </div>
+
+        <%= image_tag movie.image_url(:thumb).to_s %>
+
+        <h2><%= link_to movie.title, movie_path(movie) %></h2>
+        <h3>Released: <%= movie.release_date.strftime("%B %-d, %Y") %></h3>
+      
+        <h4>Director: <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
+        <p><%= movie.description %></p>
+        
+        <%  if i % 3 == 2 %>
+        <div style="clear: both;"></div>
+        <% end %> 
+        
+      </div>
+
+    <% end %>     
+
+  </div>
+</div>
+  <!--
   
 
-  <div class="col-md-3">
-    <div class="poster-container"> 
-      <%= link_to image_tag(movie.poster_image_url), movie_path(movie) %>
-    </div>
 
-    <%= image_tag movie.image_url(:thumb).to_s %>
-
-    <h2><%= link_to movie.title, movie_path(movie) %></h2>
-    <h3>Released: <%= movie.release_date.strftime("%B %-d, %Y") %></h3>
-   
-    <h4>Director: <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-    <p><%= movie.description %></p>
-  </div>
+  -->
 
 
-  <%  if i % 3 == 2 %>
-    <div style="clear: both;"></div>
-  <% end %> 
-<% end %>
 
 <div style="clear: both;"></div>
