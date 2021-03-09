@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: #bbb;">
   
   <div class="back-button" style="border: 1px solid black; padding: 5px; margin: 5px;">
     <%= link_to "Back to all movies", movies_path %><br/>
@@ -6,9 +6,9 @@
   <br>
   <%= link_to image_tag(@movie.poster_image_url), movie_path(@movie) %>
   <%= image_tag @movie.image_url(:thumb).to_s %>
-  <h2><%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?" %>)</h2>
-  <h3><%= @movie.release_date %></h3>
-  <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
+  <h3><%= @movie.title %> (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?" %>)</h3>
+  <h4><%= @movie.release_date %></h4>
+  <h5>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h5>
   <p><%= @movie.description %></p>
 
   <hr>
